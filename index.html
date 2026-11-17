@@ -141,6 +141,26 @@ legend{font-size:13px;letter-spacing:.04em;color:var(--deep);margin-bottom:6px;p
 .done h3{font-size:28px;color:var(--primary)}
 .done p{margin:8px 0 0;color:var(--muted)}
 [hidden]{display:none!important}
+.done{animation:pop .45s ease both}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.tick{width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--ivory);display:grid;place-items:center;font-size:26px;margin:0 auto 12px}
+.done .next{font-size:14px;margin-top:16px}
+.linkbtn{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:13px;cursor:pointer;margin-top:16px;padding:4px}
+.msg.mine{border-color:var(--gold);box-shadow:0 0 0 2px rgba(184,150,79,.25)}
+.toast{position:fixed;left:50%;bottom:76px;z-index:60;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--deep);color:var(--ivory);padding:11px 20px;border-radius:999px;font-size:14px;box-shadow:0 8px 24px rgba(46,56,40,.3);transition:opacity .35s ease,transform .35s ease;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (min-width:960px){.toast{left:auto;right:240px;transform:translate(50%,16px)}.toast.show{transform:translate(50%,0)}}
+.status{background:var(--ivory);color:var(--ink);border-radius:14px;padding:24px 22px;margin:0 auto 40px;max-width:360px;text-align:left}
+.status-head{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);text-align:center}
+.status h3{font-size:24px;color:var(--primary);text-align:center;margin:6px 0 14px}
+.status ul{list-style:none;margin:0;padding:0}
+.status li{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.status li span:nth-child(2){flex:1}
+.status li em{font-style:normal;font-size:12px;color:var(--muted)}
+.mark{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:transparent;flex:none}
+.status li.ok .mark{background:var(--primary);border-color:var(--primary);color:var(--ivory)}
+.status li.ok em{color:var(--primary)}
+.status li.todo em{color:#9B2C2C}
 
 /* faq */
 .faq{margin-top:24px;text-align:left;display:grid;gap:8px}
@@ -386,9 +406,15 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
     </form>
     <p class="lede" id="rsvpLocked" hidden data-i18n="rsvpLocked">Please open the personal invitation link we sent you to reply.</p>
     <div class="done" id="rsvpDone" hidden>
+      <div class="tick" aria-hidden="true">✓</div>
       <h3 id="doneTitle">Thank you!</h3>
       <p id="doneText"></p>
-      <div class="row"><button class="btn ghost" type="button" id="rsvpEdit" data-i18n="edit">Change my reply</button></div>
+      <p class="next" data-i18n="nextSteps">Your RSVP is complete. If you would like, you can also:</p>
+      <div class="row">
+        <button class="btn" type="button" data-go="messages" data-i18n="goMsg">Leave a message</button>
+        <button class="btn ghost" type="button" data-go="gifts" data-i18n="goGift">Gift details</button>
+      </div>
+      <button class="linkbtn" type="button" id="rsvpEdit" data-i18n="edit">Change my reply</button>
     </div>
   </section>
 
@@ -423,8 +449,13 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
           <div class="err" id="giftErr" role="alert"></div>
           <button class="btn" type="submit" id="giftBtn" data-i18n="gSend">Send</button>
         </form>
-        <p class="small" id="giftDone" hidden style="padding-bottom:16px"></p>
       </details>
+      <div class="done" id="giftDone" hidden>
+        <div class="tick" aria-hidden="true">✓</div>
+        <h3 data-i18n="giftDoneTitle">Thank you!</h3>
+        <p data-i18n="gThanks">Thank you so much for your kindness and generosity.</p>
+        <button class="linkbtn" type="button" id="giftAgain" data-i18n="giftAnother">Send another note</button>
+      </div>
     </div>
     <p class="lede" id="giftLocked" hidden data-i18n="giftLocked">Gift details are included in your personal invitation link.</p>
   </section>
@@ -439,6 +470,12 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
       <div class="err" id="msgErr" role="alert"></div>
       <button class="btn" type="submit" id="msgBtn" data-i18n="post">Post message</button>
     </form>
+    <div class="done" id="msgDone" hidden>
+      <div class="tick" aria-hidden="true">✓</div>
+      <h3 data-i18n="msgDoneTitle">Message posted</h3>
+      <p data-i18n="msgDoneText">Thank you for your prayers and blessings. Your message now appears below.</p>
+      <button class="linkbtn" type="button" id="msgAgain" data-i18n="msgAnother">Write another message</button>
+    </div>
     <div class="wall" id="wall" aria-live="polite"></div>
   </section>
 
@@ -446,6 +483,12 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
 
   <!-- Closing -->
   <section class="closing" id="closing">
+    <div class="status" id="statusCard" hidden>
+      <div class="status-head" data-i18n="statusYour">Your reply</div>
+      <h3 id="statusTitle"></h3>
+      <ul id="statusList"></ul>
+      <div class="row" id="statusAction" hidden><button class="btn" type="button" data-go="rsvp" data-i18n="replyNow">Reply now</button></div>
+    </div>
     <div class="eyebrow" data-i18n="withLove">With love</div>
     <div class="names"><span data-c="groomShort">Devankha</span> &amp; <span data-c="brideShort">Christiana</span></div>
     <div class="tag" data-c="hashtag">#DevankhaAndChristiana</div>
@@ -453,11 +496,12 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
   </section>
 </main>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="fab">
   <button type="button" id="musicBtn" hidden aria-label="Play or pause music">♪</button>
   <button type="button" id="langBtn" aria-label="Switch language">日本語</button>
 </div>
-<audio id="music" loop preload="none"></audio>
+<audio id="music" loop preload="metadata"></audio>
 
 <script>
 /* =====================================================================
@@ -558,9 +602,12 @@ const CONFIG = {
     ]
   },
 
-  // Optional background music file, e.g. "song.mp3"
-  music: "",
-  musicCredit: "",
+  // Background music: upload an .mp3 named music.mp3 next to index.html on GitHub and it plays automatically.
+  // (Using a different file name? Write it here. No file = no music button.)
+  // It starts (fading in) when the guest taps "Open invitation"; the ♪ button pauses and plays it.
+  music: "music.mp3",
+  musicCredit: "",   // shown at the bottom, e.g. "Song title – Artist"
+  musicVolume: 0.6,  // 0 to 1
 
   // Paste your Google Apps Script web app URL here to save RSVPs and messages.
   endpoint: "https://script.google.com/macros/s/AKfycbwzT9SNZzDw4f-vMagSjvsuKP7GLwKcyMTjeM_zUHM37pcQjG5-BnpDeRXdwmoviR32/exec"
@@ -599,6 +646,12 @@ const T = {
     giftLocked:"Gift details are included in your personal invitation link.",
     giftConfirm:"Let us know you sent a gift", gType:"How you sent it", gTypePost:"Gift by post", gTypeBank:"Bank transfer", gTypeDay:"Bringing it on the day",
     gNote:"Note (optional)", gSend:"Send", gThanks:"Thank you so much for your kindness and generosity.",
+    nextSteps:"Your RSVP is complete. If you would like, you can also:", goMsg:"Leave a message", goGift:"Gift details",
+    giftDoneTitle:"Thank you!", giftAnother:"Send another note",
+    msgDoneTitle:"Message posted", msgDoneText:"Thank you for your prayers and blessings. Your message now appears below.", msgAnother:"Write another message",
+    toastRsvp:"✓  Your RSVP has been sent", toastMsg:"✓  Your message has been posted", toastGift:"✓  Thank you, we've received your note",
+    statusYour:"Your reply", stRsvp:"RSVP", stGift:"Gift note", stMsg:"Message", stSent:"Sent", stOptional:"Optional", stNotYet:"Not sent yet",
+    allSetYes:n=>`You're all set, ${n}!`, allSetNo:n=>`Thank you, ${n}`, notDone:"One step left: your RSVP", replyNow:"Reply now",
     gallery:"Gallery", photoSlot:"Your photo goes here", photoN:n=>`Photo ${n}`,
     msgs:"Prayers & blessings", msgsText:"Leave a prayer, blessing or message. We will treasure every word.",
     fMsg:"Your message", post:"Post message", posting:"Posting…", eMsg:"Please write a message.", eMsgName:"Please enter your name.",
@@ -636,6 +689,12 @@ const T = {
     giftLocked:"お祝いの送り先は、個別の招待リンクに記載しております。",
     giftConfirm:"お祝いを送られた方はこちら", gType:"お祝いの方法", gTypePost:"郵送", gTypeBank:"お振込み", gTypeDay:"当日持参",
     gNote:"メッセージ（任意）", gSend:"送信", gThanks:"温かいお心遣いに心より感謝いたします。",
+    nextSteps:"ご回答は完了しました。よろしければ、こちらもどうぞ。", goMsg:"メッセージを書く", goGift:"お祝いについて",
+    giftDoneTitle:"ありがとうございます", giftAnother:"もう一度送る",
+    msgDoneTitle:"送信しました", msgDoneText:"温かいお祈りとメッセージをありがとうございます。下に表示されています。", msgAnother:"別のメッセージを書く",
+    toastRsvp:"✓  ご回答を送信しました", toastMsg:"✓  メッセージを送信しました", toastGift:"✓  ご連絡ありがとうございます",
+    statusYour:"ご回答状況", stRsvp:"ご出欠", stGift:"お祝いのご連絡", stMsg:"メッセージ", stSent:"送信済み", stOptional:"任意", stNotYet:"未回答",
+    allSetYes:n=>`${n} 様、ありがとうございました`, allSetNo:n=>`${n} 様、ありがとうございました`, notDone:"ご出欠のご回答をお願いいたします", replyNow:"回答する",
     gallery:"ギャラリー", photoSlot:"ここに写真が入ります", photoN:n=>`写真 ${n}`,
     msgs:"お祈り・メッセージ", msgsText:"お祈りやお祝いのメッセージをお寄せください。ひとつひとつ大切に読ませていただきます。",
     fMsg:"メッセージ", post:"送信する", posting:"送信中…", eMsg:"メッセージを入力してください。", eMsgName:"お名前を入力してください。",
@@ -747,6 +806,7 @@ function render(){
     f.replaceChildren(src ? el("img",{src,alt:"",loading:"lazy"}) : document.createTextNode(t.photoSlot));
   });
   renderGifts();
+  if (typeof renderStatus === "function" && typeof done !== "undefined") renderStatus();
   buildGallery();
   setupReveal();
 }
@@ -829,7 +889,8 @@ form.addEventListener("submit", async e => {
   try {
     await send(payload);
     lastReply = { name, attending }; store.set("rsvp:" + (code || "open"), lastReply);
-    showDone(lastReply);
+    showDone(lastReply); toast(t.toastRsvp); renderStatus();
+    $("#rsvpDone").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
   } catch (x) { err.textContent = t.eSend; }
   finally { btn.disabled = false; btn.textContent = t.send; }
 });
@@ -839,7 +900,7 @@ function showDone(r){
   $("#doneText").textContent = r.attending === "yes" ? t.thanksYesText(r.name) : t.thanksNoText(r.name);
   form.hidden = true; $("#rsvpDone").hidden = false;
 }
-$("#rsvpEdit").addEventListener("click", () => { $("#rsvpDone").hidden = true; form.hidden = false; lastReply = null; $("#r-name").focus(); });
+$("#rsvpEdit").addEventListener("click", () => { $("#rsvpDone").hidden = true; form.hidden = false; $("#r-name").focus(); });
 
 /* Messages */
 let wall = [];
@@ -848,7 +909,7 @@ function renderWall(){
   if (!wall.length) { box.append(el("p",{class:"empty",text:t.empty})); return; }
   wall.forEach(m => {
     const when = m.time ? new Date(m.time).toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", { day:"numeric", month:"short", year:"numeric" }) : "";
-    box.append(el("div",{class:"msg"}, el("b",{text:m.name}), el("time",{text: m.preview ? `${when} · ${t.previewTag}` : when}), el("p",{text:m.message})));
+    box.append(el("div",{class: m.mine ? "msg mine" : "msg"}, el("b",{text:m.name}), el("time",{text: m.preview ? `${when} · ${t.previewTag}` : when}), el("p",{text:m.message})));
   });
 }
 async function loadWall(){
@@ -866,25 +927,44 @@ $("#msgForm").addEventListener("submit", async e => {
   const btn = $("#msgBtn"); btn.disabled = true; btn.textContent = t.posting;
   try {
     const r = await send({ type:"message", name, message, code, lang });
-    const entry = { name, message, time: new Date().toISOString(), preview: !!r.preview };
+    const entry = { name, message, time: new Date().toISOString(), preview: !!r.preview, mine: true };
     wall.unshift(entry); if (!live) store.set("wall", wall);
     $("#m-text").value = ""; renderWall();
+    done.msg = true; store.set("msg:" + doneKey, true);
+    $("#msgForm").hidden = true; $("#msgDone").hidden = false; toast(t.toastMsg); renderStatus();
   } catch (x) { err.textContent = t.eSend; }
   finally { btn.disabled = false; btn.textContent = t.post; }
 });
 $("#msgForm").addEventListener("input", () => { $("#msgErr").textContent = ""; });
 
 /* Cover, music, language */
+const audio = $("#music"); let userPaused = false, fadeTimer = 0;
+function setMusicBtn(playing){ const b = $("#musicBtn"); b.textContent = playing ? "❚❚" : "♪"; b.setAttribute("aria-label", playing ? "Pause music" : "Play music"); }
+function playMusic(){
+  if (!CONFIG.music) return;
+  clearInterval(fadeTimer); audio.volume = 0;
+  audio.play().then(() => {
+    setMusicBtn(true);
+    const target = CONFIG.musicVolume || 0.6;
+    fadeTimer = setInterval(() => { audio.volume = Math.min(target, audio.volume + 0.04); if (audio.volume >= target) clearInterval(fadeTimer); }, 120);
+  }).catch(() => setMusicBtn(false));
+}
 $("#openBtn").addEventListener("click", () => {
   $("#cover").classList.add("gone");
-  if (CONFIG.music) { const a = $("#music"); a.play().then(() => { $("#musicBtn").textContent = "❚❚"; }).catch(() => {}); }
-  $("#top").focus?.();
+  playMusic();
 });
 if (CONFIG.music) {
-  const a = $("#music"); a.src = CONFIG.music; $("#musicBtn").hidden = false;
+  audio.addEventListener("error", () => { CONFIG.music = ""; $("#musicBtn").hidden = true; }, { once: true });
+  audio.addEventListener("loadedmetadata", () => { if (CONFIG.music) $("#musicBtn").hidden = false; }, { once: true });
+  audio.src = CONFIG.music;
   $("#musicBtn").addEventListener("click", () => {
-    if (a.paused) a.play().then(() => { $("#musicBtn").textContent = "❚❚"; }).catch(() => {});
-    else { a.pause(); $("#musicBtn").textContent = "♪"; }
+    if (audio.paused) { userPaused = false; playMusic(); }
+    else { userPaused = true; audio.pause(); setMusicBtn(false); }
+  });
+  // pause when the guest switches app or tab, resume when they come back
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { if (!audio.paused) { audio.pause(); setMusicBtn(false); } }
+    else if (!userPaused && $("#cover").classList.contains("gone")) playMusic();
   });
 }
 $("#langBtn").addEventListener("click", () => { lang = lang === "en" ? "ja" : "en"; store.set("lang", lang); render(); });
@@ -941,7 +1021,8 @@ $("#giftForm").addEventListener("submit", async e => {
   const btn = $("#giftBtn"); btn.disabled = true;
   try {
     await send({ type:"gift", code, name, giftType: $("#gf-type").value, note: $("#gf-note").value.trim(), lang });
-    $("#giftForm").hidden = true; const d = $("#giftDone"); d.hidden = false; d.textContent = t.gThanks;
+    $(".giftform").open = false; $(".giftform").hidden = true; $("#giftDone").hidden = false;
+    $("#gf-note").value = ""; done.gift = true; store.set("gift:" + doneKey, true); toast(t.toastGift); renderStatus();
   } catch (x) { $("#giftErr").textContent = t.eSend; }
   finally { btn.disabled = false; }
 });
@@ -1003,6 +1084,38 @@ function setupReveal(){
     n.classList.add("rv"); io.observe(n);
   });
 }
+
+
+/* Completion: toast, done cards, and the "Your reply" summary */
+const doneKey = code || "open";
+const done = { msg: !!store.get("msg:" + doneKey), gift: !!store.get("gift:" + doneKey) };
+let toastTimer = 0;
+function toast(text){
+  const tEl = $("#toast"); tEl.textContent = text; tEl.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => tEl.classList.remove("show"), 3200);
+}
+function renderStatus(){
+  const t = T[lang]; const card = $("#statusCard");
+  const show = !!guestEntry && !guestLoading;
+  card.hidden = !show; if (!show) return;
+  const rsvpDone = !!lastReply; const name = guestName();
+  $("#statusTitle").textContent = rsvpDone ? (lastReply.attending === "yes" ? t.allSetYes(name) : t.allSetNo(name)) : t.notDone;
+  $("#statusAction").hidden = rsvpDone;
+  const rows = [[t.stRsvp, rsvpDone, true], [t.stGift, done.gift, false], [t.stMsg, done.msg, false]];
+  $("#statusList").replaceChildren(...rows.map(([label, ok, required]) =>
+    el("li", { class: ok ? "ok" : (required ? "todo" : "") },
+      el("span", { class: "mark", text: "✓" }), el("span", { text: label }),
+      el("em", { text: ok ? t.stSent : (required ? t.stNotYet : t.stOptional) }))));
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-go]"); if (!b) return;
+  const target = document.getElementById(b.dataset.go);
+  if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+});
+$("#msgAgain").addEventListener("click", () => { $("#msgDone").hidden = true; $("#msgForm").hidden = false; $("#m-text").focus(); });
+$("#giftAgain").addEventListener("click", () => { $("#giftDone").hidden = true; const d = $(".giftform"); d.hidden = false; d.open = true; $("#giftForm").hidden = false; });
+if (done.gift) { $(".giftform").hidden = true; $("#giftDone").hidden = false; }
+if (done.msg) { $("#msgForm").hidden = true; $("#msgDone").hidden = false; }
 
 /* Guest lookup: the Sheet's "Guests" tab decides the name and seats for each code */
 function applyGuest(){
