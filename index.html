@@ -176,7 +176,9 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
 .cover .names em{font-family:var(--script);font-style:normal;color:var(--gold);font-size:.75em;display:block;line-height:1.1}
 .cover .date{letter-spacing:.3em;color:var(--beige);font-size:14px}
 .cover .to{margin-top:34px;font-size:13px;color:var(--beige)}
-.cover .to b{display:block;font-family:var(--display);font-weight:400;font-size:26px;color:var(--ivory);margin-top:2px}
+.cover .to,.hero .guest{transition:opacity .5s ease}
+.cover .to.waiting,.hero .guest.waiting{opacity:0}
+.cover .to b{min-height:1.3em;display:block;font-family:var(--display);font-weight:400;font-size:26px;color:var(--ivory);margin-top:2px}
 .cover .btn{margin-top:26px;background:var(--gold);border-color:var(--gold);color:var(--deep)}
 .cover .btn:hover{background:var(--ivory);border-color:var(--ivory)}
 
@@ -657,6 +659,9 @@ const customName = params.get("to");
 let lang = (params.get("lang") || store.get("lang") || ((navigator.language||"").startsWith("ja") ? "ja" : "en")) === "ja" ? "ja" : "en";
 let seats = guestEntry ? guestEntry.seats : CONFIG.defaultSeats;
 const live = !!CONFIG.endpoint;
+const cachedGuest = live && code ? store.get("guest:" + code) : null;
+if (cachedGuest) { guestEntry = { name: cachedGuest.name, seats: cachedGuest.seats }; if (cachedGuest.gifts) { CONFIG.gifts.address = cachedGuest.gifts.address; CONFIG.gifts.banks = cachedGuest.gifts.banks; } }
+let guestLoading = live && !!code && !cachedGuest;
 
 function guestName(){ return (guestEntry && guestEntry.name) || customName || T[lang].defaultGuest; }
 function guestLine(){ const n = guestName(); return lang === "ja" ? `${n} 様` : n; }
@@ -693,15 +698,17 @@ function render(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(n => { const v = t[n.dataset.i18n]; if (typeof v === "string") n.textContent = v; });
   document.querySelectorAll("[data-c]").forEach(n => { n.textContent = CONFIG[n.dataset.c]; });
-  $(".greet").hidden = !t.dear;
-  $("#guestName").textContent = guestLine();
-  $("#coverGuest").textContent = guestLine();
+  const named = !!(guestEntry || customName);
+  $(".greet").hidden = !t.dear || !named || guestLoading;
+  $("#guestName").textContent = guestLoading ? "" : guestLine();
+  $("#coverGuest").textContent = guestLoading ? "" : guestLine();
+  document.querySelectorAll(".to, .hero .guest").forEach(n => n.classList.toggle("waiting", guestLoading));
   $("#weekday").textContent = t.weekday;
   $("#stageDate").textContent = t.stageDate;
   $("#langBtn").textContent = t.langBtn;
   $("#groomParents").replaceChildren(withPlaceholders(CONFIG.groomParents[lang]));
   $("#brideParents").replaceChildren(withPlaceholders(CONFIG.brideParents[lang]));
-  const rsvpLocked = CONFIG.rsvpInvitedOnly && !guestEntry;
+  const rsvpLocked = CONFIG.rsvpInvitedOnly && !guestEntry && !guestLoading;
   $("#rsvpIntro").textContent = rsvpLocked ? "" : t.rsvpIntro(CONFIG.rsvpDeadline[lang], seats);
   $("#rsvpLocked").hidden = !rsvpLocked;
   if (rsvpLocked) { form.hidden = true; $("#rsvpDone").hidden = true; }
@@ -900,7 +907,7 @@ function kv(label, value, copyValue){
 function renderGifts(){
   const t = T[lang]; const g = CONFIG.gifts;
   const locked = g.detailsForInvitedOnly && !guestEntry;
-  $("#giftBody").hidden = locked; $("#giftLocked").hidden = !locked;
+  $("#giftBody").hidden = locked || guestLoading; $("#giftLocked").hidden = !locked || guestLoading;
   const a = g.address; const lines = a.lines[lang];
   const has = v => v != null && String(v).trim() !== "";
   const addr = $("#addrCard"); addr.replaceChildren(el("h4",{text:t.shipTo}));
@@ -1006,15 +1013,17 @@ function applyGuest(){
 }
 async function lookupGuest(){
   if (!live || !code) return;
-  $("#coverGuest").textContent = T[lang].loadingGuest;
   try {
     const res = await fetch(CONFIG.endpoint + "?action=guest&code=" + encodeURIComponent(code));
     const data = await res.json();
     if (data.ok) {
       guestEntry = { name: data.name, seats: data.seats };
-      if (data.gifts) { CONFIG.gifts.address = data.gifts.address; CONFIG.gifts.banks = data.gifts.banks; }
-    }
+      const gifts = data.gifts || { address: { name: "", lines: { en: "", ja: "" }, phone: "" }, banks: [] };
+      CONFIG.gifts.address = gifts.address; CONFIG.gifts.banks = gifts.banks;
+      store.set("guest:" + code, { name: data.name, seats: data.seats, gifts });
+    } else { guestEntry = null; }
   } catch (x) {}
+  guestLoading = false;
   applyGuest(); render();
 }
 
