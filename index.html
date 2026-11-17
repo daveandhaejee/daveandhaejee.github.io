@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devankha &amp; Christiana Wedding</title>
+<meta name="description" content="You're invited to the wedding of Devankha & Christiana, 25 September 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: on wide screens a fixed sage "stage" on the left, the invitation as a phone-width ivory column on the right; on phones, just the column. */
+  --ivory:#F6F1E7; --beige:#D8C3A5; --primary:#5C6B51; --deep:#3E4936; --sage:#8A9A7B; --gold:#B8964F;
+  --ink:#2F3329; --muted:#6E6B5E; --line:#E2D9C6; --card:#FBF8F2;
+  --display:"Cormorant Garamond","Shippori Mincho",Georgia,serif;
+  --script:"Pinyon Script","Cormorant Garamond",cursive;
+  --body:"Jost","Shippori Mincho","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--deep);color:var(--ink);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+html[lang="ja"] body{font-family:"Shippori Mincho",var(--body);font-weight:400;font-size:15px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+a{color:var(--primary)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+img{max-width:100%;display:block}
+
+/* ---------- stage (desktop) ---------- */
+.stage{display:none}
+@media (min-width:960px){
+  .stage{display:flex;position:fixed;inset:0 480px 0 0;background:var(--primary);color:var(--ivory);flex-direction:column;justify-content:space-between;padding:56px 64px;overflow:hidden;background-size:cover;background-position:center}
+  .stage.has-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,56,40,.55),rgba(46,56,40,.15) 45%,rgba(46,56,40,.7))}
+  .stage>*{position:relative}
+  .stage .kicker{font-family:var(--script);font-size:34px;color:var(--beige);line-height:1}
+  .stage .names{font-family:var(--display);font-size:clamp(56px,6vw,92px);line-height:1;letter-spacing:.01em;margin-top:10px}
+  .stage .names em{font-family:var(--script);font-style:normal;color:var(--gold);font-size:.7em;padding:0 .15em}
+  .stage .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--beige)}
+  .stage .ring{width:220px;height:220px;border:1px solid rgba(184,150,79,.55);border-radius:50%;position:absolute;right:-60px;top:38%;}
+  .stage .ring+.ring{width:300px;height:300px;right:-100px;top:calc(38% - 40px);border-color:rgba(184,150,79,.25)}
+  main{margin-left:auto;width:480px}
+}
+
+/* ---------- column ---------- */
+main{background:var(--ivory);min-height:100%;max-width:100%;position:relative}
+section{padding:72px 28px;text-align:center;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:var(--script);font-size:40px;color:var(--primary);line-height:1;margin-bottom:6px}
+html[lang="ja"] .eyebrow{font-family:var(--display);font-size:26px;letter-spacing:.12em}
+.lede{color:var(--muted);max-width:34ch;margin:12px auto 0}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:22px auto;max-width:220px;color:var(--gold)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:currentColor;opacity:.6}
+.rule span{width:7px;height:7px;border:1px solid currentColor;transform:rotate(45deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--primary);background:var(--primary);color:var(--ivory);padding:11px 22px;border-radius:999px;font-size:14px;letter-spacing:.06em;cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn:hover{background:var(--deep);border-color:var(--deep)}
+.btn.ghost{background:transparent;color:var(--primary)}
+.btn.ghost:hover{background:var(--primary);color:var(--ivory)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+
+/* hero (top of column) */
+.hero{padding:0;border:0}
+.hero .photo{aspect-ratio:4/5;background:var(--beige);display:grid;place-items:center;position:relative;overflow:hidden}
+.hero .photo img{width:100%;height:100%;object-fit:cover}
+.monogram{width:150px;height:150px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:54px;color:var(--primary);background:var(--ivory)}
+.monogram small{display:block;font-size:13px;letter-spacing:.3em;color:var(--gold);font-family:var(--body);margin-top:-6px}
+.photo .hint{position:absolute;bottom:14px;left:0;right:0;font-size:12px;color:var(--deep);opacity:.7;letter-spacing:.08em}
+.hero .text{padding:48px 28px 64px;border-bottom:1px solid var(--line)}
+.greet{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.guest{font-family:var(--display);font-size:30px;color:var(--primary);margin-top:4px}
+.verse{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.4;color:var(--deep);max-width:28ch;margin:0 auto}
+html[lang="ja"] .verse{font-style:normal;font-size:19px}
+.hero .photo:not(:has(img)){aspect-ratio:1/1}
+.verse cite{display:block;font-family:var(--body);font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--gold);margin-top:10px;text-transform:uppercase}
+
+/* couple */
+.person{display:grid;gap:6px;justify-items:center}
+.portrait{width:168px;aspect-ratio:3/4;border-radius:90px 90px 6px 6px;background:var(--beige);overflow:hidden;display:grid;place-items:center;font-family:var(--display);font-size:44px;color:var(--primary);margin-bottom:12px}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.role{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.fullname{font-family:var(--display);font-size:26px;color:var(--primary);max-width:16ch}
+.parents{color:var(--muted);font-size:14px}
+.amp{font-family:var(--script);font-size:56px;color:var(--gold);line-height:1;margin:22px 0}
+
+/* date + countdown */
+.bigdate{font-family:var(--display);font-size:64px;line-height:1;color:var(--primary);letter-spacing:.02em;font-variant-numeric:lining-nums}
+.bigdate small{display:block;font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:28px auto 0;max-width:340px}
+.count div{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:12px 4px}
+.count b{display:block;font-family:var(--display);font-weight:500;font-size:30px;color:var(--primary);font-variant-numeric:tabular-nums;line-height:1.1}
+.count span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* events */
+.events{display:grid;gap:16px;margin-top:28px;text-align:center}
+.event{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 20px}
+.event h3{font-size:28px;color:var(--primary)}
+.event .time{font-size:15px;letter-spacing:.12em;margin-top:6px;font-variant-numeric:tabular-nums}
+.event .venue{font-family:var(--display);font-size:20px;margin-top:10px}
+.event .addr{color:var(--muted);font-size:14px}
+.event .note{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* dress code palette */
+.swatches{display:flex;justify-content:center;gap:10px;margin-top:20px}
+.swatch{display:grid;gap:6px;justify-items:center;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.swatch i{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.avoid{margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* story */
+.story{list-style:none;padding:0;margin:28px auto 0;text-align:left;max-width:360px;position:relative}
+.story::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--beige)}
+.story li{position:relative;padding:0 0 26px 34px}
+.story li::before{content:"";position:absolute;left:2px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--ivory);border:1px solid var(--gold)}
+.story li:last-child::before{background:var(--primary);border-color:var(--primary)}
+.story .when{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.story h3{font-size:22px;color:var(--primary);margin:2px 0 4px}
+.story p{margin:0;color:var(--muted);font-size:15px}
+.placeholder{background:rgba(184,150,79,.14);border-radius:3px;padding:0 3px}
+
+/* forms */
+form{text-align:left;margin-top:26px;display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:13px;letter-spacing:.04em;color:var(--deep)}
+input,select,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;padding:11px 12px;font-size:16px;font-weight:300}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(184,150,79,.2)}
+.phone{display:grid;grid-template-columns:118px 1fr;gap:8px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{border:1px solid var(--line);background:#fff;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:14px;color:var(--ink);display:block}
+.choice input:checked+label{border-color:var(--primary);background:var(--primary);color:var(--ivory)}
+.choice input:focus-visible+label{outline:2px solid var(--gold);outline-offset:2px}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:13px;letter-spacing:.04em;color:var(--deep);margin-bottom:6px;padding:0}
+.guestcard{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:12px;background:var(--card)}
+.guestcard h4{margin:0;font-family:var(--display);font-weight:500;font-size:18px;color:var(--primary)}
+.err{color:#9B2C2C;font-size:13px;min-height:0}
+.err:empty{display:none}
+.notice{font-size:12px;color:var(--muted);text-align:center;background:rgba(138,154,123,.14);border-radius:8px;padding:8px 10px}
+.done{background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:28px 22px;margin-top:26px}
+.done h3{font-size:28px;color:var(--primary)}
+.done p{margin:8px 0 0;color:var(--muted)}
+[hidden]{display:none!important}
+
+/* faq */
+.faq{margin-top:24px;text-align:left;display:grid;gap:8px}
+details{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:0 16px}
+summary{cursor:pointer;list-style:none;padding:14px 0;font-family:var(--display);font-size:20px;color:var(--primary);display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-family:var(--body)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted);font-size:15px}
+
+/* messages */
+.wall{display:grid;gap:12px;margin-top:26px;text-align:left;max-height:520px;overflow-y:auto;padding-right:4px}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.msg b{font-weight:500;color:var(--primary)}
+.msg time{font-size:12px;color:var(--muted);margin-left:6px}
+.msg p{margin:6px 0 0;font-size:15px;white-space:pre-wrap;overflow-wrap:anywhere}
+.empty{color:var(--muted);font-size:14px;text-align:center}
+
+/* closing */
+.closing{background:var(--primary);color:var(--ivory);padding:80px 28px}
+.closing .eyebrow{color:var(--beige)}
+.closing .names{font-family:var(--display);font-size:44px;line-height:1.1}
+.closing .tag{color:var(--gold);letter-spacing:.12em;margin-top:14px;font-size:14px}
+.closing small{display:block;margin-top:36px;font-size:12px;color:var(--beige);opacity:.8}
+
+/* cover */
+.cover{position:fixed;inset:0;z-index:50;background:var(--deep);color:var(--ivory);display:grid;place-items:center;text-align:center;padding:32px 24px;transition:opacity .7s ease,visibility .7s}
+.cover.gone{opacity:0;visibility:hidden}
+.cover .frame{border:1px solid rgba(184,150,79,.5);padding:46px 30px;max-width:420px;width:100%;position:relative}
+.cover .frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(184,150,79,.25);pointer-events:none}
+.cover .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--beige)}
+.cover .names{font-family:var(--display);font-size:52px;line-height:1.05;margin:18px 0 6px}
+.cover .names em{font-family:var(--script);font-style:normal;color:var(--gold);font-size:.75em;display:block;line-height:1.1}
+.cover .date{letter-spacing:.3em;color:var(--beige);font-size:14px}
+.cover .to{margin-top:34px;font-size:13px;color:var(--beige)}
+.cover .to b{display:block;font-family:var(--display);font-weight:400;font-size:26px;color:var(--ivory);margin-top:2px}
+.cover .btn{margin-top:26px;background:var(--gold);border-color:var(--gold);color:var(--deep)}
+.cover .btn:hover{background:var(--ivory);border-color:var(--ivory)}
+
+/* floating controls */
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;gap:8px}
+.fab button{background:var(--primary);color:var(--ivory);border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-size:13px;letter-spacing:.06em;cursor:pointer;box-shadow:0 4px 14px rgba(46,56,40,.25)}
+@media (min-width:960px){.fab{right:24px}}
+
+
+/* photo slots */
+.interlude{margin:0;aspect-ratio:4/3;display:grid;place-items:center;color:var(--ivory);font-size:13px;letter-spacing:.1em;overflow:hidden;border-bottom:1px solid var(--line);background:var(--sage)}
+.interlude:nth-of-type(even){background:var(--beige);color:var(--deep)}
+.interlude img,.story .sp img{width:100%;height:100%;object-fit:cover}
+.story .sp{margin-top:12px;aspect-ratio:16/10;border-radius:8px;background:var(--beige);display:grid;place-items:center;font-size:12px;letter-spacing:.08em;color:var(--deep);overflow:hidden}
+.closing.has-photo{background-size:cover;background-position:center}
+
+/* gallery: centre slide full size and colour, neighbours smaller and black and white */
+.gal{margin:26px -28px 0}
+.track{position:relative;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 14%;outline-offset:-3px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 72%;scroll-snap-align:center;aspect-ratio:3/4;border-radius:12px;overflow:hidden;transform:scale(.82);filter:grayscale(1);opacity:.7;transition:transform .55s ease,filter .55s ease,opacity .55s ease;cursor:pointer;background:var(--beige)}
+.slide.active{transform:scale(1);filter:none;opacity:1;cursor:default;box-shadow:0 14px 30px rgba(46,56,40,.18)}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide .ph{width:100%;height:100%;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--ivory)}
+.galnav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}
+.arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--primary);font-size:22px;line-height:1;cursor:pointer}
+.arrow:hover{border-color:var(--gold)}
+.dots{display:flex;gap:6px;align-items:center}
+.dots button{width:7px;height:7px;border-radius:4px;border:0;padding:0;background:var(--line);cursor:pointer;transition:width .3s,background .3s}
+.dots button[aria-current="true"]{background:var(--gold);width:20px}
+.galcap{font-family:var(--display);font-style:italic;font-size:18px;color:var(--primary);min-height:1.4em;margin-top:10px}
+
+/* gifts */
+.tabs{display:inline-grid;grid-template-columns:1fr 1fr;gap:4px;border:1px solid var(--line);border-radius:999px;padding:4px;margin-top:22px;background:var(--card)}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:9px 16px;font-size:14px;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--primary);color:var(--ivory)}
+.panel{margin-top:18px;display:grid;gap:12px;text-align:left}
+.giftcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.giftcard h4{margin:0 0 6px;font-family:var(--display);font-weight:500;font-size:21px;color:var(--primary)}
+.kv{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.kv:first-of-type{border-top:0}
+.kv .k{color:var(--muted);font-size:12px;letter-spacing:.04em}
+.kv .v{overflow-wrap:anywhere;white-space:pre-line;font-variant-numeric:tabular-nums}
+.copy{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:12px;cursor:pointer;color:var(--primary);white-space:nowrap}
+.copy:hover{border-color:var(--gold)}
+.small{font-size:13px;color:var(--muted);text-align:center;margin:2px 0 0}
+.giftform{margin-top:18px;text-align:left}
+.giftform form{margin-top:0;padding-bottom:16px}
+
+/* scroll reveal */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .interlude.rv img{transform:scale(1.08);transition:transform 1.6s ease}
+  .interlude.rv.in img{transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- Cover: shown first, names the guest, opens the invitation -->
+<div class="cover" id="cover" role="dialog" aria-modal="true" aria-labelledby="coverNames">
+  <div class="frame">
+    <div class="kicker" data-i18n="coverKicker">The wedding of</div>
+    <h1 class="names" id="coverNames"><span data-c="groomShort">Devankha</span><em>&amp;</em><span data-c="brideShort">Christiana</span></h1>
+    <div class="date">25 · 09 · 2027</div>
+    <div class="to"><span data-i18n="coverTo">A personal invitation for</span><b id="coverGuest">Our dear guest</b></div>
+    <button class="btn" id="openBtn" type="button" data-i18n="open">Open invitation</button>
+  </div>
+</div>
+
+<!-- Desktop stage -->
+<aside class="stage" id="stage" aria-hidden="true">
+  <div>
+    <div class="kicker" data-i18n="stageKicker">The wedding of</div>
+    <div class="names"><span data-c="groomShort">Devankha</span><em>&amp;</em><br><span data-c="brideShort">Christiana</span></div>
+  </div>
+  <div class="ring"></div><div class="ring"></div>
+  <div class="foot"><span id="stageDate">Saturday · 25 September 2027</span><span data-c="hashtag">#DevankhaAndChristiana</span></div>
+</aside>
+
+<main id="top">
+
+  <!-- Welcome -->
+  <section class="hero" aria-label="Welcome">
+    <div class="photo" id="heroPhoto">
+      <div class="monogram" aria-hidden="true"><div>D<span style="color:var(--gold)">&amp;</span>C<small>2027</small></div></div>
+      <div class="hint" data-i18n="photoHint">Your engagement photo goes here</div>
+    </div>
+    <div class="text">
+      <div class="greet" data-i18n="dear">Dear</div>
+      <div class="guest" id="guestName">Our dear guest</div>
+      <div class="rule"><span></span></div>
+      <p class="lede" data-i18n="invite">With joyful hearts and by the grace of God, we invite you to celebrate with us as we become husband and wife.</p>
+      <div class="rule"><span></span></div>
+      <blockquote class="verse" style="margin:0 auto">
+        <span data-i18n="verse">“A threefold cord is not quickly broken.”</span>
+        <cite data-i18n="verseRef">Ecclesiastes 4:12</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Couple -->
+  <section id="couple">
+    <div class="eyebrow" data-i18n="couple">The couple</div>
+    <div class="rule"><span></span></div>
+    <div class="person">
+      <div class="portrait" id="groomPhoto">D</div>
+      <div class="role" data-i18n="groom">The groom</div>
+      <div class="fullname" data-c="groomFull">Kapuge Devankha Joshua De Silva Goonewardena</div>
+      <div class="parents" id="groomParents"></div>
+    </div>
+    <div class="amp" aria-hidden="true">&amp;</div>
+    <div class="person">
+      <div class="portrait" id="bridePhoto">C</div>
+      <div class="role" data-i18n="bride">The bride</div>
+      <div class="fullname" data-c="brideFull">Christiana Haejee Kim</div>
+      <div class="parents" id="brideParents"></div>
+    </div>
+  </section>
+
+  <figure class="interlude" data-photo="interlude1"></figure>
+
+  <!-- Date + events -->
+  <section id="when">
+    <div class="eyebrow" data-i18n="saveDate">Save the date</div>
+    <div class="bigdate">25.09.27<small id="weekday">Saturday</small></div>
+    <div class="count" aria-live="off">
+      <div><b id="cd-d">0</b><span data-i18n="days">Days</span></div>
+      <div><b id="cd-h">0</b><span data-i18n="hours">Hours</span></div>
+      <div><b id="cd-m">0</b><span data-i18n="mins">Min</span></div>
+      <div><b id="cd-s">0</b><span data-i18n="secs">Sec</span></div>
+    </div>
+    <div class="events" id="events"></div>
+  </section>
+
+  <!-- Dress code -->
+  <section id="dress">
+    <div class="eyebrow" data-i18n="dress">Dress code</div>
+    <p class="lede" data-i18n="dressText">Autumn formal. We would love to see you in our colours.</p>
+    <div class="swatches" aria-label="Suggested colours">
+      <div class="swatch"><i style="background:#722F37"></i><span data-i18n="cWine">Wine</span></div>
+      <div class="swatch"><i style="background:#8A9A7B"></i><span data-i18n="cSage">Sage</span></div>
+      <div class="swatch"><i style="background:#B8964F"></i><span data-i18n="cGold">Gold</span></div>
+      <div class="swatch"><i style="background:#4B3428"></i><span data-i18n="cBrown">Brown</span></div>
+      <div class="swatch"><i style="background:#1F2A44"></i><span data-i18n="cNavy">Navy</span></div>
+      <div class="swatch"><i style="background:#1C1C1C"></i><span data-i18n="cBlack">Black</span></div>
+    </div>
+    <p class="avoid" data-i18n="dressAvoid">Ladies, please avoid white and ivory. Gentlemen, please avoid beige.</p>
+  </section>
+
+  <figure class="interlude" data-photo="interlude2"></figure>
+
+  <!-- Story -->
+  <section id="story">
+    <div class="eyebrow" data-i18n="story">Our story</div>
+    <ol class="story" id="storyList"></ol>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="eyebrow" data-i18n="gallery">Gallery</div>
+    <div class="gal">
+      <div class="track" id="galTrack" tabindex="0" aria-roledescription="carousel" aria-label="Photo gallery"></div>
+    </div>
+    <div class="galcap" id="galCap" aria-live="polite"></div>
+    <div class="galnav">
+      <button class="arrow" type="button" id="galPrev" aria-label="Previous photo">‹</button>
+      <div class="dots" id="galDots"></div>
+      <button class="arrow" type="button" id="galNext" aria-label="Next photo">›</button>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="eyebrow" data-i18n="rsvp">RSVP</div>
+    <p class="lede" id="rsvpIntro"></p>
+    <form id="rsvpForm" novalidate>
+      <label for="r-name"><span data-i18n="fName">Your name</span><input id="r-name" name="name" autocomplete="name" required></label>
+      <label for="r-email"><span data-i18n="fEmail">Email</span><input id="r-email" name="email" type="email" autocomplete="email"></label>
+      <div style="display:grid;gap:6px">
+        <label for="r-phone"><span data-i18n="fPhone">Phone</span></label>
+        <div class="phone">
+          <select id="r-cc" name="cc" aria-label="Country code"></select>
+          <input id="r-phone" name="phone" type="tel" autocomplete="tel-national">
+        </div>
+      </div>
+      <fieldset>
+        <legend data-i18n="fAttend">Will you join us?</legend>
+        <div class="choice">
+          <input type="radio" id="r-yes" name="attending" value="yes"><label for="r-yes" data-i18n="yes">Joyfully accepts</label>
+          <input type="radio" id="r-no" name="attending" value="no"><label for="r-no" data-i18n="no">Regretfully declines</label>
+        </div>
+      </fieldset>
+      <div id="yesBlock" hidden style="display:grid;gap:16px">
+        <label for="r-count"><span data-i18n="fCount">Number of guests attending</span><select id="r-count" name="count"></select></label>
+        <div id="guestRows" style="display:grid;gap:12px"></div>
+      </div>
+      <label for="r-note"><span data-i18n="fNote">A note for us (optional)</span><textarea id="r-note" name="note" maxlength="800"></textarea></label>
+      <div class="err" id="rsvpErr" role="alert"></div>
+      <button class="btn" type="submit" id="rsvpBtn" data-i18n="send">Send reply</button>
+      <div class="notice" id="rsvpPreview" hidden data-i18n="previewNote">Preview mode: replies are not saved until the RSVP sheet is connected.</div>
+    </form>
+    <p class="lede" id="rsvpLocked" hidden data-i18n="rsvpLocked">Please open the personal invitation link we sent you to reply.</p>
+    <div class="done" id="rsvpDone" hidden>
+      <h3 id="doneTitle">Thank you!</h3>
+      <p id="doneText"></p>
+      <div class="row"><button class="btn ghost" type="button" id="rsvpEdit" data-i18n="edit">Change my reply</button></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="eyebrow" data-i18n="faq">Travel &amp; FAQ</div>
+    <div class="faq" id="faqList"></div>
+  </section>
+
+  <!-- Gifts -->
+  <section id="gifts">
+    <div class="eyebrow" data-i18n="gifts">Gifts</div>
+    <p class="lede" data-i18n="giftText">Your presence is the greatest gift.</p>
+    <div id="giftBody">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-gift" aria-selected="true" aria-controls="panel-gift" data-i18n="tabPhysical">Send a gift</button>
+        <button type="button" role="tab" id="tab-money" aria-selected="false" aria-controls="panel-money" data-i18n="tabMoney">Monetary gift</button>
+      </div>
+      <div class="panel" id="panel-gift" role="tabpanel" aria-labelledby="tab-gift">
+        <div class="giftcard" id="addrCard"></div>
+        <p class="small" data-i18n="onTheDay">You are also welcome to bring a gift to the reception desk on the day.</p>
+      </div>
+      <div class="panel" id="panel-money" role="tabpanel" aria-labelledby="tab-money" hidden>
+        <div id="bankList" style="display:grid;gap:12px"></div>
+      </div>
+      <details class="giftform">
+        <summary data-i18n="giftConfirm">Let us know you sent a gift</summary>
+        <form id="giftForm" novalidate>
+          <label for="gf-name"><span data-i18n="fName">Your name</span><input id="gf-name" maxlength="120" autocomplete="name"></label>
+          <label for="gf-type"><span data-i18n="gType">Gift</span><select id="gf-type"></select></label>
+          <label for="gf-note"><span data-i18n="gNote">Note (optional)</span><textarea id="gf-note" maxlength="600"></textarea></label>
+          <div class="err" id="giftErr" role="alert"></div>
+          <button class="btn" type="submit" id="giftBtn" data-i18n="gSend">Send</button>
+        </form>
+        <p class="small" id="giftDone" hidden style="padding-bottom:16px"></p>
+      </details>
+    </div>
+    <p class="lede" id="giftLocked" hidden data-i18n="giftLocked">Gift details are included in your personal invitation link.</p>
+  </section>
+
+  <!-- Messages -->
+  <section id="messages">
+    <div class="eyebrow" data-i18n="msgs">Prayers &amp; blessings</div>
+    <p class="lede" data-i18n="msgsText">Leave a prayer, blessing or message. We will treasure every word.</p>
+    <form id="msgForm" novalidate>
+      <label for="m-name"><span data-i18n="fName">Your name</span><input id="m-name" name="name" maxlength="80" autocomplete="name"></label>
+      <label for="m-text"><span data-i18n="fMsg">Your message</span><textarea id="m-text" name="message" maxlength="1500"></textarea></label>
+      <div class="err" id="msgErr" role="alert"></div>
+      <button class="btn" type="submit" id="msgBtn" data-i18n="post">Post message</button>
+    </form>
+    <div class="wall" id="wall" aria-live="polite"></div>
+  </section>
+
+  <figure class="interlude" data-photo="interlude3"></figure>
+
+  <!-- Closing -->
+  <section class="closing" id="closing">
+    <div class="eyebrow" data-i18n="withLove">With love</div>
+    <div class="names"><span data-c="groomShort">Devankha</span> &amp; <span data-c="brideShort">Christiana</span></div>
+    <div class="tag" data-c="hashtag">#DevankhaAndChristiana</div>
+    <small id="credit"></small>
+  </section>
+</main>
+
+<div class="fab">
+  <button type="button" id="musicBtn" hidden aria-label="Play or pause music">♪</button>
+  <button type="button" id="langBtn" aria-label="Switch language">日本語</button>
+</div>
+<audio id="music" loop preload="none"></audio>
+
+<script>
+/* =====================================================================
+   EDIT EVERYTHING HERE. Text in [brackets] is a placeholder to replace.
+   ===================================================================== */
+const CONFIG = {
+  groomShort: "Devankha",
+  brideShort: "Christiana",
+  groomFull: "Kapuge Devankha Joshua De Silva Goonewardena",
+  brideFull: "Christiana Haejee Kim",
+  groomParents: { en: "Son of Mr. Roshan Goonewardena and Mrs. Roshanthi Goonewardena", ja: "父 Roshan Goonewardena・母 Roshanthi Goonewardena" },
+  brideParents: { en: "Daughter of Mr. Kim Hyeon Jae and Mrs. Kim Hee Ryoung", ja: "父 Kim Hyeon Jae・母 Kim Hee Ryoung" },
+  hashtag: "#DevankhaAndChristiana",
+
+  // Countdown target (Japan time)
+  weddingStart: "2027-09-25T09:45:00+09:00",
+
+  events: [
+    { id: "ceremony", start: "09:45", end: "11:00",
+      venue: { en: "Full Gospel Oita Church", ja: "Full Gospel Oita Church" },
+      address: { en: "13-5 Noguchi Nakamachi, Beppu, Oita 874-0932", ja: "〒874-0932 大分県別府市野口中町13-5" },
+      mapQuery: "13-5 Noguchi Nakamachi, Beppu, Oita 874-0932",
+      note: { en: "Please arrive by 9:45 AM.", ja: "9:45までにお越しください。" } },
+    { id: "reception", start: "11:30", end: "14:00",
+      venue: { en: "Elements restaurant, ANA InterContinental Beppu Resort & Spa", ja: "ANA インターコンチネンタル別府リゾート＆スパ「Elements」" },
+      address: { en: "499-18 Kannawa, Beppu, Oita 874-0000", ja: "〒874-0000 大分県別府市大字鉄輪499-18" },
+      mapQuery: "ANA InterContinental Beppu Resort & Spa",
+      note: { en: "A bus will take guests travelling from afar or without transport to the reception and back.", ja: "遠方からお越しの方やお車のない方のために、披露宴会場への往復送迎バスをご用意しております。" } }
+  ],
+
+  rsvpDeadline: { en: "31 July 2027", ja: "2027年7月31日" },
+  defaultSeats: 2,
+
+  // true = only guests with a personal link can RSVP; everyone else is asked to use their link
+  rsvpInvitedOnly: true,
+
+  // Once the Google Sheet is connected (endpoint below), manage guests and seats in its "Guests" tab
+  // and this list is ignored. It is only for trying the site out before then.
+  // Preview link: add #DEMO or #SOLO01 to the end of the address.
+  guests: {
+    DEMO:   { name: "Mr. & Mrs. Tanaka", seats: 2 },
+    SOLO01: { name: "Emily Carter", seats: 1 }
+  },
+
+  story: [
+    { when: { en: "15 September 2019", ja: "2019年9月15日" }, title: { en: "How we met", ja: "出会い" },
+      photo: "",
+      text: { en: "We first laid eyes on each other at a Sunday service at Full Gospel Oita Church. Devankha walked into his first Sunday at church in Japan and saw Christy on the keys, leading worship. Like his pastor back home, he had a God moment: he knew he was looking at his future wife.",
+              ja: "ふたりが初めて出会ったのは、Full Gospel Oita Church の日曜礼拝でした。日本で初めての日曜日に教会を訪れたデヴァンカは、キーボードで賛美をリードするクリスティを見て、母国の牧師と同じように「この人が将来の妻だ」と神様から示されたのです。" } },
+    { when: { en: "[Date]", ja: "[日付]" }, title: { en: "Our first date", ja: "はじめてのデート" },
+      photo: "",
+      text: { en: "Our first date was at La Luna, an Italian restaurant. Devankha doesn't remember a thing, so Christiana remembers it for both of us.",
+              ja: "はじめてのデートはイタリアンレストラン「La Luna」。デヴァンカは何も覚えていないので、クリスティアナがふたり分覚えています。" } },
+    { when: { en: "[Date]", ja: "[日付]" }, title: { en: "The proposal", ja: "プロポーズ" },
+      photo: "",
+      text: { en: "[After many failed attempts by Christiana to propose to Devankha, he is still in the process of sorting that out.]",
+              ja: "[クリスティアナから何度もプロポーズされかけましたが、デヴァンカは現在、準備中です。]" } },
+    { when: { en: "25 September 2027", ja: "2027年9月25日" }, title: { en: "Forever begins", ja: "そして、これから" },
+      text: { en: "Surrounded by the people we love, we say yes to a life together.", ja: "大切な皆様に見守られながら、ふたりで新しい人生を歩み始めます。" } }
+  ],
+
+  faq: [
+    { q: { en: "How do I get there?", ja: "会場へのアクセス" },
+      a: { en: "The ceremony is at Full Gospel Oita Church in Beppu, and the lunch reception is at ANA InterContinental Beppu Resort & Spa. A bus will take guests travelling from afar or without transport to the reception and back. [Bus pick-up point and time.]",
+           ja: "挙式は別府市の Full Gospel Oita Church、披露宴は ANA インターコンチネンタル別府リゾート＆スパにて行います。遠方からお越しの方やお車のない方には、披露宴会場への往復送迎バスをご用意しております。[送迎バスの乗車場所・時間]" } },
+    { q: { en: "When should I arrive?", ja: "何時に到着すればよいですか？" },
+      a: { en: "Please arrive at the church by 9:45 AM.", ja: "9:45までに教会へお越しください。" } },
+    { q: { en: "Can I bring a plus-one or children?", ja: "同伴者やお子様は参加できますか？" },
+      a: { en: "Your invitation shows the seats we have reserved for you. If you have questions, please contact us.", ja: "招待状に記載のお席数をご確認ください。ご不明な点はお気軽にご連絡ください。" } },
+    { q: { en: "How can I contact you?", ja: "お問い合わせ" },
+      a: { en: "Email us at daveandhaejee@gmail.com", ja: "daveandhaejee@gmail.com までメールでお問い合わせください。" } },
+    { q: { en: "Can I take photos during the ceremony?", ja: "挙式中の写真撮影は可能ですか？" },
+      a: { en: "We would love your full attention during the ceremony. Our photographer will share photos with everyone afterwards.", ja: "挙式中はスマートフォンをしまい、ご一緒にお祝いいただけると嬉しいです。写真は後日カメラマンより共有いたします。" } }
+  ],
+
+  // Optional images: put the files next to index.html and write their names, e.g. "hero.jpg"
+  photos: { hero: "", stage: "", groom: "", bride: "",
+            interlude1: "", interlude2: "", interlude3: "", closing: "" },
+
+  // Gallery: add as many as you like, e.g. { src: "gallery-01.jpg", caption: { en: "Beppu, 2021", ja: "別府 2021年" } }
+  gallery: [],
+
+  gifts: {
+    // Your real address and bank details go in the Sheet's "Gift details" tab, NOT here:
+    // this file is public on GitHub. The placeholders below only show in the preview.
+    // true = address and bank details only show on personal invitation links (?code=...)
+    detailsForInvitedOnly: true,
+    address: {
+      name: "[Recipient name]",
+      lines: { en: "[Postal code]\n[Street address]\nBeppu, Oita, Japan", ja: "〒[郵便番号]\n[住所]" },
+      phone: "[Phone number]"
+    },
+    banks: [
+      { owner: "Devankha", bank: "[Bank name]", branch: "[Branch name and number]",
+        type: { en: "Savings (普通)", ja: "普通" }, number: "[Account number]", holder: "[Account holder name]", swift: "" },
+      { owner: "Christiana", bank: "[Bank name]", branch: "[Branch name and number]",
+        type: { en: "Savings (普通)", ja: "普通" }, number: "[Account number]", holder: "[Account holder name]", swift: "" }
+    ]
+  },
+
+  // Optional background music file, e.g. "song.mp3"
+  music: "",
+  musicCredit: "",
+
+  // Paste your Google Apps Script web app URL here to save RSVPs and messages.
+  endpoint: ""
+};
+
+/* ============================== WORDS ============================== */
+const T = {
+  en: {
+    coverKicker:"The wedding of", stageKicker:"The wedding of", coverTo:"A personal invitation for", open:"Open invitation",
+    dear:"Dear", defaultGuest:"Our dear guest", photoHint:"Your engagement photo goes here",
+    invite:"With joyful hearts and by the grace of God, we invite you to celebrate with us as we become husband and wife.",
+    verse:"“A threefold cord is not quickly broken.”", verseRef:"Ecclesiastes 4:12",
+    couple:"The couple", groom:"The groom", bride:"The bride",
+    saveDate:"Save the date", days:"Days", hours:"Hours", mins:"Min", secs:"Sec",
+    ceremony:"Holy matrimony", reception:"Lunch reception", map:"View map", cal:"Add to calendar",
+    dress:"Dress code", dressText:"Autumn formal. We would love to see you in our colours.",
+    dressAvoid:"Ladies, please avoid white and ivory. Gentlemen, please avoid beige.",
+    cWine:"Wine", cSage:"Sage", cGold:"Gold", cBrown:"Brown", cNavy:"Navy", cBlack:"Black",
+    story:"Our story", rsvp:"RSVP",
+    rsvpIntro:(d,s)=>`Please reply by ${d}. We have reserved ${s} ${s===1?"seat":"seats"} in your honour.`,
+    fName:"Your name", fEmail:"Email", fPhone:"Phone", fAttend:"Will you join us?", yes:"Joyfully accepts", no:"Regretfully declines",
+    fCount:"Number of guests attending", gTitle:n=>`Guest ${n}`, gName:"Full name", gDiet:"Allergies or dietary needs",
+    fNote:"A note for us (optional)", send:"Send reply", sending:"Sending…", edit:"Change my reply",
+    previewNote:"Preview mode: replies are not saved until the RSVP sheet is connected.",
+    rsvpLocked:"Please open the personal invitation link we sent you to reply.", loadingGuest:"…",
+    eName:"Please enter your name.", eAttend:"Please let us know if you can come.", eGuest:"Please enter a full name for each guest.",
+    eEmail:"Please check your email address.", eSend:"Your reply could not be sent. Check your connection and try again.",
+    thanksYes:"See you there!", thanksYesText:n=>`Thank you, ${n}. We can't wait to celebrate with you.`,
+    thanksNo:"Thank you", thanksNoText:n=>`Thank you for letting us know, ${n}. You will be in our hearts and prayers.`,
+    faq:"Travel & FAQ", gifts:"Gifts",
+    giftText:"Your presence is the greatest gift. If you would like to honour us with a gift, you can send one by post or make a contribution below.",
+    tabPhysical:"Send a gift", tabMoney:"Monetary gift", shipTo:"Please send gifts to", recipient:"Name", address:"Address", phone:"Phone",
+    onTheDay:"You are also welcome to bring a gift to the reception desk (受付) on the day.",
+    bankName:"Bank", branch:"Branch", acctType:"Account type", acctNo:"Account no.", holder:"Account holder", swift:"SWIFT / BIC",
+    copy:"Copy", copied:"Copied", copyFail:"Select to copy",
+    giftLocked:"Gift details are included in your personal invitation link.",
+    giftConfirm:"Let us know you sent a gift", gType:"How you sent it", gTypePost:"Gift by post", gTypeBank:"Bank transfer", gTypeDay:"Bringing it on the day",
+    gNote:"Note (optional)", gSend:"Send", gThanks:"Thank you so much for your kindness and generosity.",
+    gallery:"Gallery", photoSlot:"Your photo goes here", photoN:n=>`Photo ${n}`,
+    msgs:"Prayers & blessings", msgsText:"Leave a prayer, blessing or message. We will treasure every word.",
+    fMsg:"Your message", post:"Post message", posting:"Posting…", eMsg:"Please write a message.", eMsgName:"Please enter your name.",
+    empty:"No messages yet. Be the first to leave a blessing.", previewTag:"preview, not saved",
+    withLove:"With love", langBtn:"日本語", weekday:"Saturday", stageDate:"Saturday · 25 September 2027"
+  },
+  ja: {
+    coverKicker:"結婚式のご案内", stageKicker:"The wedding of", coverTo:"ご招待", open:"招待状を開く",
+    dear:"", defaultGuest:"ゲスト", photoHint:"ここにおふたりの写真が入ります",
+    invite:"神様の恵みと感謝の心をもって、私たちの結婚式にご招待いたします。ふたりの新しい門出を、ぜひ一緒にお祝いください。",
+    verse:"「三つよりの綱はたやすくは切れない。」", verseRef:"伝道の書 4章12節",
+    couple:"新郎新婦", groom:"新郎", bride:"新婦",
+    saveDate:"挙式日", days:"日", hours:"時間", mins:"分", secs:"秒",
+    ceremony:"挙式", reception:"披露宴（ランチ）", map:"地図を見る", cal:"カレンダーに追加",
+    dress:"ドレスコード", dressText:"秋らしいフォーマルでお越しください。下記のテーマカラーを取り入れていただけると嬉しいです。",
+    dressAvoid:"女性の方は白・アイボリー、男性の方はベージュのお召し物をお控えください。",
+    cWine:"ワイン", cSage:"セージ", cGold:"ゴールド", cBrown:"ブラウン", cNavy:"ネイビー", cBlack:"ブラック",
+    story:"ふたりの歩み", rsvp:"ご出欠",
+    rsvpIntro:(d,s)=>`${d}までにご回答ください。${s}名様分のお席をご用意しております。`,
+    fName:"お名前", fEmail:"メールアドレス", fPhone:"電話番号", fAttend:"ご出欠", yes:"喜んで出席します", no:"残念ながら欠席します",
+    fCount:"出席人数", gTitle:n=>`${n}人目`, gName:"お名前（フルネーム）", gDiet:"アレルギー・食事制限",
+    fNote:"メッセージ（任意）", send:"回答を送信", sending:"送信中…", edit:"回答を変更する",
+    previewNote:"プレビュー表示中：回答はまだ保存されません。",
+    rsvpLocked:"ご回答は、お送りした個別の招待リンクからお願いいたします。", loadingGuest:"…",
+    eName:"お名前を入力してください。", eAttend:"ご出欠をお選びください。", eGuest:"出席される方全員のお名前を入力してください。",
+    eEmail:"メールアドレスをご確認ください。", eSend:"送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。",
+    thanksYes:"ありがとうございます", thanksYesText:n=>`${n} 様、ご回答ありがとうございます。当日お会いできるのを楽しみにしています。`,
+    thanksNo:"ありがとうございます", thanksNoText:n=>`${n} 様、ご連絡ありがとうございます。お気持ちに心より感謝いたします。`,
+    faq:"アクセス・よくある質問", gifts:"お祝いについて",
+    giftText:"ご出席いただけることが何よりの贈り物です。お祝いをお贈りくださる場合は、下記をご利用ください。",
+    tabPhysical:"お祝いの品を送る", tabMoney:"お振込み", shipTo:"お祝いの品の送り先", recipient:"お名前", address:"住所", phone:"電話番号",
+    onTheDay:"当日、受付にてご祝儀やお祝いの品をお預かりすることもできます。",
+    bankName:"銀行名", branch:"支店", acctType:"口座種別", acctNo:"口座番号", holder:"口座名義", swift:"SWIFT / BIC",
+    copy:"コピー", copied:"コピーしました", copyFail:"選択してコピーしてください",
+    giftLocked:"お祝いの送り先は、個別の招待リンクに記載しております。",
+    giftConfirm:"お祝いを送られた方はこちら", gType:"お祝いの方法", gTypePost:"郵送", gTypeBank:"お振込み", gTypeDay:"当日持参",
+    gNote:"メッセージ（任意）", gSend:"送信", gThanks:"温かいお心遣いに心より感謝いたします。",
+    gallery:"ギャラリー", photoSlot:"ここに写真が入ります", photoN:n=>`写真 ${n}`,
+    msgs:"お祈り・メッセージ", msgsText:"お祈りやお祝いのメッセージをお寄せください。ひとつひとつ大切に読ませていただきます。",
+    fMsg:"メッセージ", post:"送信する", posting:"送信中…", eMsg:"メッセージを入力してください。", eMsgName:"お名前を入力してください。",
+    empty:"まだメッセージはありません。最初のメッセージをお寄せください。", previewTag:"プレビュー・未保存",
+    withLove:"心を込めて", langBtn:"EN", weekday:"土曜日", stageDate:"2027年9月25日（土）"
+  }
+};
+
+const COUNTRIES = [["81","Japan"],["94","Sri Lanka"],["82","Korea"],["1","USA / Canada"],["44","UK"],["61","Australia"],["64","New Zealand"],["86","China"],["886","Taiwan"],["852","Hong Kong"],["65","Singapore"],["60","Malaysia"],["62","Indonesia"],["63","Philippines"],["66","Thailand"],["84","Vietnam"],["91","India"],["49","Germany"],["33","France"],["971","UAE"]];
+
+/* ============================== APP ============================== */
+const $ = s => document.querySelector(s);
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+const params = new URLSearchParams(location.search);
+const code = (params.get("code") || location.hash.slice(1) || "").toUpperCase();
+let guestEntry = CONFIG.endpoint ? null : (CONFIG.guests[code] || null);
+const customName = params.get("to");
+let lang = (params.get("lang") || store.get("lang") || ((navigator.language||"").startsWith("ja") ? "ja" : "en")) === "ja" ? "ja" : "en";
+let seats = guestEntry ? guestEntry.seats : CONFIG.defaultSeats;
+const live = !!CONFIG.endpoint;
+
+function guestName(){ return (guestEntry && guestEntry.name) || customName || T[lang].defaultGuest; }
+function guestLine(){ const n = guestName(); return lang === "ja" ? `${n} 様` : n; }
+function fmtTime(hm){
+  if (lang === "ja") return hm;
+  let [h,m] = hm.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
+  return `${h}:${String(m).padStart(2,"0")} ${ap}`;
+}
+function calLink(ev){
+  const d = "20270925", s = ev.start.replace(":","")+"00", e = ev.end.replace(":","")+"00";
+  const title = `${CONFIG.groomShort} & ${CONFIG.brideShort}: ${T.en[ev.id]}`;
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text=" + encodeURIComponent(title)
+    + `&dates=${d}T${s}/${d}T${e}&ctz=Asia/Tokyo`
+    + "&location=" + encodeURIComponent(`${ev.venue.en}, ${ev.address.en}`);
+}
+function mapLink(ev){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(ev.mapQuery || `${ev.venue.en} ${ev.address.en}`); }
+function el(tag, attrs, ...kids){
+  const n = document.createElement(tag);
+  for (const k in (attrs||{})) { if (k === "class") n.className = attrs[k]; else if (k === "text") n.textContent = attrs[k]; else n.setAttribute(k, attrs[k]); }
+  kids.forEach(c => c && n.append(c)); return n;
+}
+function withPlaceholders(text){
+  const frag = document.createDocumentFragment();
+  text.split(/(\[[^\]]+\])/).forEach(part => {
+    if (!part) return;
+    frag.append(part.startsWith("[") ? el("span",{class:"placeholder",text:part}) : document.createTextNode(part));
+  });
+  return frag;
+}
+
+function render(){
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(n => { const v = t[n.dataset.i18n]; if (typeof v === "string") n.textContent = v; });
+  document.querySelectorAll("[data-c]").forEach(n => { n.textContent = CONFIG[n.dataset.c]; });
+  $(".greet").hidden = !t.dear;
+  $("#guestName").textContent = guestLine();
+  $("#coverGuest").textContent = guestLine();
+  $("#weekday").textContent = t.weekday;
+  $("#stageDate").textContent = t.stageDate;
+  $("#langBtn").textContent = t.langBtn;
+  $("#groomParents").replaceChildren(withPlaceholders(CONFIG.groomParents[lang]));
+  $("#brideParents").replaceChildren(withPlaceholders(CONFIG.brideParents[lang]));
+  const rsvpLocked = CONFIG.rsvpInvitedOnly && !guestEntry;
+  $("#rsvpIntro").textContent = rsvpLocked ? "" : t.rsvpIntro(CONFIG.rsvpDeadline[lang], seats);
+  $("#rsvpLocked").hidden = !rsvpLocked;
+  if (rsvpLocked) { form.hidden = true; $("#rsvpDone").hidden = true; }
+  else if (!lastReply) form.hidden = false;
+
+  const evBox = $("#events"); evBox.replaceChildren();
+  CONFIG.events.forEach(ev => {
+    evBox.append(el("div",{class:"event"},
+      el("h3",{text:t[ev.id]}),
+      el("div",{class:"time",text:`${fmtTime(ev.start)} – ${fmtTime(ev.end)}`}),
+      el("div",{class:"venue"}, withPlaceholders(ev.venue[lang])),
+      el("div",{class:"addr"}, withPlaceholders(ev.address[lang])),
+      ev.note && ev.note[lang] ? el("div",{class:"note",text:ev.note[lang]}) : null,
+      el("div",{class:"row"},
+        el("a",{class:"btn ghost",href:mapLink(ev),target:"_blank",rel:"noopener",text:t.map}),
+        el("a",{class:"btn",href:calLink(ev),target:"_blank",rel:"noopener",text:t.cal}))
+    ));
+  });
+
+  const sl = $("#storyList"); sl.replaceChildren();
+  CONFIG.story.forEach(s => sl.append(el("li",null,
+    el("div",{class:"when"}, withPlaceholders(s.when[lang])),
+    el("h3",{text:s.title[lang]}),
+    el("p",null, withPlaceholders(s.text[lang])),
+    s.photo !== undefined ? el("div",{class:"sp"}, s.photo ? el("img",{src:s.photo,alt:s.title[lang],loading:"lazy"}) : document.createTextNode(t.photoSlot)) : null)));
+
+  const fq = $("#faqList"); fq.replaceChildren();
+  CONFIG.faq.forEach(f => fq.append(el("details",null, el("summary",{text:f.q[lang]}), el("p",null, withPlaceholders(f.a[lang])))));
+
+  buildGuestRows();
+  renderWall();
+  if (lastReply && !rsvpLocked) showDone(lastReply);
+  $("#credit").textContent = CONFIG.musicCredit ? "♪ " + CONFIG.musicCredit : "";
+  document.querySelectorAll(".interlude").forEach(f => {
+    const src = CONFIG.photos[f.dataset.photo];
+    f.replaceChildren(src ? el("img",{src,alt:"",loading:"lazy"}) : document.createTextNode(t.photoSlot));
+  });
+  renderGifts();
+  buildGallery();
+  setupReveal();
+}
+
+/* photos */
+function applyPhotos(){
+  const p = CONFIG.photos;
+  if (p.hero) { $("#heroPhoto").replaceChildren(el("img",{src:p.hero,alt:`${CONFIG.groomShort} and ${CONFIG.brideShort}`})); }
+  if (p.stage || p.hero) { const s = $("#stage"); s.classList.add("has-photo"); s.style.backgroundImage = `url("${p.stage || p.hero}")`; }
+  if (p.groom) $("#groomPhoto").replaceChildren(el("img",{src:p.groom,alt:CONFIG.groomShort}));
+  if (p.bride) $("#bridePhoto").replaceChildren(el("img",{src:p.bride,alt:CONFIG.brideShort}));
+  if (p.closing) { const c = $("#closing"); c.classList.add("has-photo"); c.style.backgroundImage = `linear-gradient(rgba(46,56,40,.72),rgba(46,56,40,.72)),url("${p.closing}")`; }
+}
+
+/* countdown */
+function tick(){
+  let ms = Math.max(0, new Date(CONFIG.weddingStart) - Date.now());
+  const d = Math.floor(ms/864e5); ms -= d*864e5;
+  const h = Math.floor(ms/36e5); ms -= h*36e5;
+  const m = Math.floor(ms/6e4); ms -= m*6e4;
+  $("#cd-d").textContent = d; $("#cd-h").textContent = String(h).padStart(2,"0");
+  $("#cd-m").textContent = String(m).padStart(2,"0"); $("#cd-s").textContent = String(Math.floor(ms/1e3)).padStart(2,"0");
+}
+
+/* RSVP */
+const form = $("#rsvpForm");
+let lastReply = store.get("rsvp:" + (code || "open"));
+function buildCountOptions(){
+  const sel = $("#r-count"); const cur = Number(sel.value) || seats;
+  sel.replaceChildren(); for (let i = 1; i <= seats; i++) sel.append(el("option",{value:i,text:String(i)}));
+  sel.value = Math.min(cur, seats);
+}
+function buildGuestRows(){
+  const t = T[lang]; const n = Number($("#r-count").value) || 1; const box = $("#guestRows");
+  const old = [...box.querySelectorAll(".guestcard")].map(c => ({ name: c.querySelector("[data-k=name]").value, diet: c.querySelector("[data-k=diet]").value }));
+  box.replaceChildren();
+  for (let i = 1; i <= n; i++) {
+    const nameIn = el("input",{id:`g${i}-name`,"data-k":"name",autocomplete:"off"});
+    const dietIn = el("input",{id:`g${i}-diet`,"data-k":"diet",autocomplete:"off"});
+    nameIn.value = (old[i-1] && old[i-1].name) ? old[i-1].name : (i === 1 ? $("#r-name").value : "");
+    dietIn.value = old[i-1] ? old[i-1].diet : "";
+    box.append(el("div",{class:"guestcard"}, el("h4",{text:t.gTitle(i)}),
+      el("label",{for:`g${i}-name`}, el("span",{text:t.gName}), nameIn),
+      el("label",{for:`g${i}-diet`}, el("span",{text:t.gDiet}), dietIn)));
+  }
+}
+function attendingValue(){ const c = form.querySelector("input[name=attending]:checked"); return c ? c.value : ""; }
+form.addEventListener("change", e => {
+  if (e.target.name === "attending") $("#yesBlock").hidden = attendingValue() !== "yes";
+  if (e.target.id === "r-count") buildGuestRows();
+  $("#rsvpErr").textContent = "";
+});
+form.addEventListener("input", () => { $("#rsvpErr").textContent = ""; });
+$("#r-name").addEventListener("input", () => { const g = $("#g1-name"); if (g && !g.dataset.touched) g.value = $("#r-name").value; });
+$("#guestRows").addEventListener("input", e => { if (e.target.id === "g1-name") e.target.dataset.touched = "1"; });
+
+async function send(payload){
+  if (!live) { await new Promise(r => setTimeout(r, 500)); return { ok: true, preview: true }; }
+  const res = await fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload) });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error || "failed");
+  return data;
+}
+form.addEventListener("submit", async e => {
+  e.preventDefault(); const t = T[lang]; const err = $("#rsvpErr");
+  const name = $("#r-name").value.trim(); const email = $("#r-email").value.trim(); const attending = attendingValue();
+  if (!name) { err.textContent = t.eName; $("#r-name").focus(); return; }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = t.eEmail; $("#r-email").focus(); return; }
+  if (!attending) { err.textContent = t.eAttend; $("#r-yes").focus(); return; }
+  let guests = [];
+  if (attending === "yes") {
+    guests = [...document.querySelectorAll(".guestcard")].map(c => ({ name: c.querySelector("[data-k=name]").value.trim(), diet: c.querySelector("[data-k=diet]").value.trim() }));
+    const missing = guests.findIndex(g => !g.name);
+    if (missing > -1) { err.textContent = t.eGuest; $(`#g${missing+1}-name`).focus(); return; }
+  }
+  const payload = { type:"rsvp", code, invitedAs: guestName(), name, email,
+    phone: $("#r-phone").value.trim() ? `+${$("#r-cc").value} ${$("#r-phone").value.trim()}` : "",
+    attending, count: attending === "yes" ? guests.length : 0, guests, note: $("#r-note").value.trim(), lang };
+  const btn = $("#rsvpBtn"); btn.disabled = true; btn.textContent = t.sending;
+  try {
+    await send(payload);
+    lastReply = { name, attending }; store.set("rsvp:" + (code || "open"), lastReply);
+    showDone(lastReply);
+  } catch (x) { err.textContent = t.eSend; }
+  finally { btn.disabled = false; btn.textContent = t.send; }
+});
+function showDone(r){
+  const t = T[lang];
+  $("#doneTitle").textContent = r.attending === "yes" ? t.thanksYes : t.thanksNo;
+  $("#doneText").textContent = r.attending === "yes" ? t.thanksYesText(r.name) : t.thanksNoText(r.name);
+  form.hidden = true; $("#rsvpDone").hidden = false;
+}
+$("#rsvpEdit").addEventListener("click", () => { $("#rsvpDone").hidden = true; form.hidden = false; lastReply = null; $("#r-name").focus(); });
+
+/* Messages */
+let wall = [];
+function renderWall(){
+  const box = $("#wall"); box.replaceChildren(); const t = T[lang];
+  if (!wall.length) { box.append(el("p",{class:"empty",text:t.empty})); return; }
+  wall.forEach(m => {
+    const when = m.time ? new Date(m.time).toLocaleDateString(lang === "ja" ? "ja-JP" : "en-GB", { day:"numeric", month:"short", year:"numeric" }) : "";
+    box.append(el("div",{class:"msg"}, el("b",{text:m.name}), el("time",{text: m.preview ? `${when} · ${t.previewTag}` : when}), el("p",{text:m.message})));
+  });
+}
+async function loadWall(){
+  if (live) {
+    try { const res = await fetch(CONFIG.endpoint + "?action=messages"); const data = await res.json(); wall = data.messages || []; }
+    catch (x) { wall = []; }
+  } else { wall = store.get("wall") || []; }
+  renderWall();
+}
+$("#msgForm").addEventListener("submit", async e => {
+  e.preventDefault(); const t = T[lang]; const err = $("#msgErr");
+  const name = $("#m-name").value.trim(); const message = $("#m-text").value.trim();
+  if (!name) { err.textContent = t.eMsgName; $("#m-name").focus(); return; }
+  if (!message) { err.textContent = t.eMsg; $("#m-text").focus(); return; }
+  const btn = $("#msgBtn"); btn.disabled = true; btn.textContent = t.posting;
+  try {
+    const r = await send({ type:"message", name, message, code, lang });
+    const entry = { name, message, time: new Date().toISOString(), preview: !!r.preview };
+    wall.unshift(entry); if (!live) store.set("wall", wall);
+    $("#m-text").value = ""; renderWall();
+  } catch (x) { err.textContent = t.eSend; }
+  finally { btn.disabled = false; btn.textContent = t.post; }
+});
+$("#msgForm").addEventListener("input", () => { $("#msgErr").textContent = ""; });
+
+/* Cover, music, language */
+$("#openBtn").addEventListener("click", () => {
+  $("#cover").classList.add("gone");
+  if (CONFIG.music) { const a = $("#music"); a.play().then(() => { $("#musicBtn").textContent = "❚❚"; }).catch(() => {}); }
+  $("#top").focus?.();
+});
+if (CONFIG.music) {
+  const a = $("#music"); a.src = CONFIG.music; $("#musicBtn").hidden = false;
+  $("#musicBtn").addEventListener("click", () => {
+    if (a.paused) a.play().then(() => { $("#musicBtn").textContent = "❚❚"; }).catch(() => {});
+    else { a.pause(); $("#musicBtn").textContent = "♪"; }
+  });
+}
+$("#langBtn").addEventListener("click", () => { lang = lang === "en" ? "ja" : "en"; store.set("lang", lang); render(); });
+
+
+/* Gifts */
+function isPh(v){ return !v || /^\[.*\]$/.test(String(v).trim()); }
+async function copyText(btn, text){
+  const t = T[lang];
+  try { await navigator.clipboard.writeText(text); btn.textContent = t.copied; }
+  catch (e) { btn.textContent = t.copyFail; }
+  setTimeout(() => { btn.textContent = T[lang].copy; }, 1800);
+}
+function kv(label, value, copyValue){
+  const row = el("div",{class:"kv"}, el("span",{class:"k",text:label}), el("span",{class:"v"}, withPlaceholders(value)));
+  if (copyValue && !isPh(copyValue)) { const b = el("button",{class:"copy",type:"button",text:T[lang].copy}); b.addEventListener("click", () => copyText(b, copyValue)); row.append(b); }
+  else row.append(el("span"));
+  return row;
+}
+function renderGifts(){
+  const t = T[lang]; const g = CONFIG.gifts;
+  const locked = g.detailsForInvitedOnly && !guestEntry;
+  $("#giftBody").hidden = locked; $("#giftLocked").hidden = !locked;
+  const a = g.address; const lines = a.lines[lang];
+  const has = v => v != null && String(v).trim() !== "";
+  const addr = $("#addrCard"); addr.replaceChildren(el("h4",{text:t.shipTo}));
+  if (has(a.name)) addr.append(kv(t.recipient, a.name, a.name));
+  if (has(lines)) addr.append(kv(t.address, lines, /\[/.test(lines) ? "" : lines.replace(/\n/g," ")));
+  if (has(a.phone)) addr.append(kv(t.phone, a.phone, a.phone));
+  const bl = $("#bankList"); bl.replaceChildren();
+  g.banks.forEach(b => {
+    const card = el("div",{class:"giftcard"}, el("h4",{text:b.owner}));
+    [[t.bankName,b.bank,null],[t.branch,b.branch,null],[t.acctType,b.type && b.type[lang],null],
+     [t.acctNo,b.number,b.number],[t.holder,b.holder,b.holder],[t.swift,b.swift,b.swift]]
+      .forEach(([l,v,c]) => { if (has(v)) card.append(kv(l, String(v), c ? String(c) : null)); });
+    bl.append(card);
+  });
+  const sel = $("#gf-type"); const cur = sel.value; sel.replaceChildren();
+  [["post",t.gTypePost],["bank",t.gTypeBank],["day",t.gTypeDay]].forEach(([v,l]) => sel.append(el("option",{value:v,text:l})));
+  if (cur) sel.value = cur;
+}
+function selectTab(which){
+  const gift = which === "gift";
+  $("#tab-gift").setAttribute("aria-selected", gift); $("#tab-money").setAttribute("aria-selected", !gift);
+  $("#panel-gift").hidden = !gift; $("#panel-money").hidden = gift;
+}
+$("#tab-gift").addEventListener("click", () => selectTab("gift"));
+$("#tab-money").addEventListener("click", () => selectTab("money"));
+$(".tabs").addEventListener("keydown", e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { const toMoney = $("#tab-gift").getAttribute("aria-selected") === "true"; selectTab(toMoney ? "money" : "gift"); $(toMoney ? "#tab-money" : "#tab-gift").focus(); } });
+if (guestEntry) $("#gf-name").value = guestEntry.name;
+$("#giftForm").addEventListener("submit", async e => {
+  e.preventDefault(); const t = T[lang]; const name = $("#gf-name").value.trim();
+  if (!name) { $("#giftErr").textContent = t.eName; $("#gf-name").focus(); return; }
+  const btn = $("#giftBtn"); btn.disabled = true;
+  try {
+    await send({ type:"gift", code, name, giftType: $("#gf-type").value, note: $("#gf-note").value.trim(), lang });
+    $("#giftForm").hidden = true; const d = $("#giftDone"); d.hidden = false; d.textContent = t.gThanks;
+  } catch (x) { $("#giftErr").textContent = t.eSend; }
+  finally { btn.disabled = false; }
+});
+$("#giftForm").addEventListener("input", () => { $("#giftErr").textContent = ""; });
+
+/* Gallery */
+const track = $("#galTrack"); let galIndex = 0; let galRaf = 0;
+const PH_COLORS = ["#5C6B51","#B8964F","#8A9A7B","#3E4936","#A98E6A","#722F37"];
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function galItems(){ return CONFIG.gallery.length ? CONFIG.gallery : Array.from({length:6}, () => ({})); }
+function buildGallery(){
+  const items = galItems(); const dots = $("#galDots");
+  track.replaceChildren(); dots.replaceChildren();
+  items.forEach((it, i) => {
+    const cap = it.caption ? (it.caption[lang] || it.caption.en || "") : "";
+    const slide = el("div",{class:"slide",role:"group","aria-roledescription":"slide","aria-label":`${i+1} / ${items.length}`});
+    slide.append(it.src ? el("img",{src:it.src,alt:cap || `${CONFIG.groomShort} & ${CONFIG.brideShort}`,loading:"lazy",draggable:"false"})
+                        : el("div",{class:"ph",style:`background:${PH_COLORS[i % PH_COLORS.length]}`,text:T[lang].photoN(i+1)}));
+    slide.addEventListener("click", () => goTo(i));
+    track.append(slide);
+    const d = el("button",{type:"button","aria-label":T[lang].photoN(i+1)}); d.addEventListener("click", () => goTo(i)); dots.append(d);
+  });
+  requestAnimationFrame(() => goTo(Math.min(galIndex, items.length - 1), true));
+}
+function updateActive(){
+  galRaf = 0; const slides = [...track.children]; if (!slides.length) return;
+  const mid = track.scrollLeft + track.clientWidth / 2; let best = 0, bestD = Infinity;
+  slides.forEach((s, i) => { const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid); if (d < bestD) { bestD = d; best = i; } });
+  galIndex = best;
+  slides.forEach((s, i) => s.classList.toggle("active", i === best));
+  [...$("#galDots").children].forEach((d, i) => d.setAttribute("aria-current", i === best));
+  const it = galItems()[best]; $("#galCap").textContent = it && it.caption ? (it.caption[lang] || it.caption.en || "") : "";
+}
+function goTo(i, instant){
+  const slides = track.children; const n = slides.length; if (!n) return;
+  i = (i + n) % n; const s = slides[i];
+  track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2, behavior: (instant || reduceMotion) ? "auto" : "smooth" });
+  if (instant) updateActive();
+}
+track.addEventListener("scroll", () => { if (!galRaf) galRaf = requestAnimationFrame(updateActive); }, { passive: true });
+track.addEventListener("keydown", e => { if (e.key === "ArrowRight") { e.preventDefault(); goTo(galIndex + 1); } if (e.key === "ArrowLeft") { e.preventDefault(); goTo(galIndex - 1); } });
+$("#galPrev").addEventListener("click", () => goTo(galIndex - 1));
+$("#galNext").addEventListener("click", () => goTo(galIndex + 1));
+addEventListener("resize", () => goTo(galIndex, true));
+
+/* Scroll reveal: things below the screen rise in as you reach them */
+const REVEAL = ".eyebrow,.lede,.person,.amp,.bigdate,.count,.event,.swatches,.avoid,.story li,.gal,.galnav,.tabs,.giftform,#rsvpForm,#msgForm,#faqList details,.interlude,.closing .names,.verse";
+const io = ("IntersectionObserver" in window) ? new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { rootMargin: "0px 0px -8% 0px" }) : null;
+function setupReveal(){
+  if (!io || reduceMotion) return;
+  document.querySelectorAll(REVEAL).forEach(n => {
+    if (n.dataset.rv) return; n.dataset.rv = "1";
+    const r = n.getBoundingClientRect();
+    if (!r.height || r.top < innerHeight * 0.92) return;
+    const idx = [...n.parentElement.children].indexOf(n);
+    n.style.transitionDelay = `${Math.min(idx % 4, 3) * 90}ms`;
+    n.classList.add("rv"); io.observe(n);
+  });
+}
+
+/* Guest lookup: the Sheet's "Guests" tab decides the name and seats for each code */
+function applyGuest(){
+  if (guestEntry) { $("#r-name").value = guestEntry.name; $("#gf-name").value = guestEntry.name; }
+  else if (customName) $("#r-name").value = customName;
+  seats = guestEntry ? Math.max(1, Number(guestEntry.seats) || 1) : CONFIG.defaultSeats;
+  buildCountOptions();
+}
+async function lookupGuest(){
+  if (!live || !code) return;
+  $("#coverGuest").textContent = T[lang].loadingGuest;
+  try {
+    const res = await fetch(CONFIG.endpoint + "?action=guest&code=" + encodeURIComponent(code));
+    const data = await res.json();
+    if (data.ok) {
+      guestEntry = { name: data.name, seats: data.seats };
+      if (data.gifts) { CONFIG.gifts.address = data.gifts.address; CONFIG.gifts.banks = data.gifts.banks; }
+    }
+  } catch (x) {}
+  applyGuest(); render();
+}
+
+/* Start */
+const cc = $("#r-cc"); COUNTRIES.forEach(([n,c]) => cc.append(el("option",{value:n,text:`+${n} ${c}`})));
+applyGuest();
+$("#rsvpPreview").hidden = live;
+applyPhotos();
+render();
+lookupGuest();
+tick(); setInterval(tick, 1000);
+loadWall();
+</script>
+</body>
+</html>
